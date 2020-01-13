@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",(event) => {
-let myOr = Number(100); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
+let myOr = Number(0); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
                    // on met la var à 0 si on donne le jeu à un joueur
 let bonus = true;            
 document.getElementById('saveBtn').addEventListener('click', function() {
