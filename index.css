@@ -1,0 +1,119 @@
+@font-face {
+	font-family: 'EnchantedSword';
+	src: url('fonts/EnchantedSword.ttf');
+}
+@font-face {
+	font-family: 'EightBitDragon';
+	src: url('fonts/eight-bit-dragon.otf');
+}
+header {
+	display: flex;
+	justify-content: space-around;
+}
+h1[id="PxKingdom"]
+{
+	font-family: 'EnchantedSword';
+	font-size: 3em;
+	color : #052f33;
+}
+#gold {
+	display: flex;
+	justify-content: center;
+
+}
+#afficheur {
+	display: flex;
+	justify-content: center;
+
+}
+#Personnages-colonne1 {
+	display: flex;
+	justify-content: space-around;
+}
+#Personnages-colonne2 {
+	display: flex;
+	justify-content: space-around;
+}
+body {
+    background-color: #bce7fd;
+}
+p {
+	font-family: 'EightBitDragon';
+	font-size: x-small;
+	color: #db2763;
+}
+span {
+	
+}
+img {
+	height: 128px;
+	width: 128px;
+}
+h1 {
+	font-family: 'EightBitDragon';
+	font-size: x-large;
+}
+h2 {
+	font-family: 'EightBitDragon';
+	font-size: medium;
+}
+h3 {
+	font-family: 'EightBitDragon';
+	font-size: small;
+}
+.btn {
+    background: #ce74ab;
+    border: 2px #0091b6;
+    color: #15DEA5;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    border-radius: 10rem;
+    font-family: 'EightBitDragon';
+	font-size: medium;
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 40ms;
+}
+.btn:hover {
+    transform: scale(1.10);
+    background: #2d7ac7;
+}
+img:hover {
+	 transform: scale(1);
+    transition-property: transform;
+    transition-duration: 40ms;
+    transform: scale(1.20);
+}
+img:active {
+	transform: scale(1);
+    transition-property: transform;
+    transition-duration: 10ms;
+    transform: scale(1.30);
+}
+@media all and (orientation: portrait) {
+	header {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	#Personnages-colonne1 {
+	display: flex;
+	flex-direction: column;
+	}
+	#Personnages-colonne2 {
+	display: flex;
+	flex-direction: column;
+	}
+	#allBtn {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: center;
+	}
+	#adBtn {
+		margin-top: 20px;
+	}
+	h1 {
+		text-align: center;
+	}
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<title id="affGoldTitle">Pixel Kingdom Cliker</title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link rel="icon" type="image/png" href="graphics/or.png" />
+		<script type="text/javascript" src="objects/Personnages.js"></script>
+		<script type="text/javascript" src="objects/Items.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		
+</head>
+<body>
+	<header>
+	<div id="stats">
+		<h3>Stats :</h3>
+			<p>Production totale par seconde : <span id="prodTotale"></span></p>
+			<p>Nombre totale de personnages : <span id="persoTotale"></span></p>
+			<p>Bonus pub production x2 (Dure 30 secondes) : <span id="statBonusPub">Activé</span></p>
+			<div id="allBtn">
+			<button id="saveBtn" class="btn" title="Charger sauvegarde si vous avez déjà joué">Charger sauvegarde</button>
+			<a target="_blank" rel="noopener noreferrer" href="pub.html" id="adBtn" class="btn" title="Regarder une pub">PUB</a>
+		    </div>
+	</div>
+	<div>
+	<div id="gold">		
+		<img id="or" src="graphics/or.png">	    		
+    </div>
+    <div id="afficheur">
+        <h1>Or : <span id="affGold"></span></h1>
+	</div>
+	</div>
+	<div id="titreJeu">
+	<h1 id="PxKingdom">Pixel Kingdom -Cliker</h1>
+	</div>
+	</header>
+	<h1>Personnages :</h1>
+    <div id="Personnages">
+	 <div id="Personnages-colonne1">
+    	<div id="Paysan">
+    	<img id="paysanImg" src="graphics/paysan_serpette.png">
+    	<h2>Paysan à serpette</h2>
+    	<p>Prix : <span id="prixPaysan"></span></p>
+    	<p>Nombre de paysans à votre service : <span id="nbPaysan"></span></p>
+    	<p>Production : <span id="productionPaysan"></span> </p>
+    	<p>Description : <span id="descPaysan"></span></p>
+    	</div>
+
+    	<div id="SoldatEpee">
+    	<img id="SoldatEpeeImg" src="graphics/soldat_epee.png">
+    	<h2>Soldat à épée</h2>
+    	<p>Prix : <span id="prixSEpee"></span></p>
+    	<p>Nombre de soldats à épée à votre service : <span id="nbSEpee"></span></p>
+    	<p>Production : <span id="productionSEpee"></span> </p>
+    	<p>Description : <span id="descSEpee"></span></p>
+    	</div>
+
+    	<div id="Archer">
+    	<img id="ArcherImg" src="graphics/archer2.png">
+    	<h2>Archer</h2>
+    	<p>Prix : <span id="prixArcher"></span></p>
+    	<p>Nombre d'archers à votre service : <span id="nbArcher"></span></p>
+    	<p>Production : <span id="productionArcher"></span> </p>
+    	<p>Description : <span id="descArcher"></span></p>
+    	</div>
+
+    	<div id="LanceurP">
+    	<img id="LanceurPImg" src="graphics/lanceur_pierre.png">
+    	<h2>Lanceur de pierres</h2>
+    	<p>Prix : <span id="prixLP"></span></p>
+    	<p>Nombre de lanceur de pierre à votre service : <span id="nbLP"></span></p>
+    	<p>Production : <span id="productionLP"></span> </p>
+    	<p>Description : <span id="descLP"></span></p>
+		</div>
+	 </div>
+	 <div id="Personnages-colonne2">	
+		<div id="SoldatLance">
+			<img id="SoldatLanceImg" src="graphics/soldat_lance.png">
+			<h2>Soldat à lance</h2>
+			<p>Prix : <span id="prixSLance"></span></p>
+			<p>Nombre de soldats à lance à votre service : <span id="nbSLance"></span></p>
+			<p>Production : <span id="productionSLance"></span> </p>
+			<p>Description : <span id="descSLance"></span></p>
+			</div>
+
+		<div id="SoldatEpeeCasque">
+			<img id="SoldatEpeeCasqueImg" src="graphics/soldat_epee_casque.png">
+			<h2>Soldat à épée et casque</h2>
+			<p>Prix : <span id="prixSCEpee"></span></p>
+			<p>Nombre de soldats à épée et casque à votre service : <span id="nbSCEpee"></span></p>
+			<p>Production : <span id="productionSCEpee"></span> </p>
+			<p>Description : <span id="descSCEpee"></span></p>
+			</div>
+	 </div>		
+
+   </div>
+   <h1>Items : </h1>
+   <div id="Items">
+   		<div id="multipliProd">
+   			<img id ="multipliProdImg"src="graphics/doubleur_or.png">
+   				<h2>Multiplicateur de production</h2>
+				   <p>Prix : <span id="prixMultiProd"></span></p>
+				   <p>Effet : Multiplie la production par <span id="effetMultiProd"></span></p>	
+				   </div>
+   </div>
+</body>
+</html>
