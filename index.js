@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded",(event) => {
-let myOr = Number(100); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
+let myOr = Number(0); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
                    // on met la var à 0 si on donne le jeu à un joueur
-let bonus = true;            
-document.getElementById('saveBtn').addEventListener('click', function() {
+let bonus = true;  
+document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
+document.getElementById('saveBtn').addEventListener('click', ()=> {
 	// récupération de l'or stockée dans le navigateur
 	myOr = JSON.parse(localStorage.getItem("Or"));
 	affGold.innerHTML= myOr;
@@ -52,11 +53,25 @@ document.getElementById('saveBtn').addEventListener('click', function() {
     stats();
 
     });
+    document.getElementById('darkBtn').addEventListener('click', ()=> {
+        if (document.body.style.backgroundColor === "rgb(188, 231, 253)") {
+            document.body.style.backgroundColor = "#121212";
+            document.body.style.color = "#BB86FC";
+            document.getElementById('PxKingdom').style.color = "#03DAC5";
+            document.getElementById('darkBtn').innerHTML = "Theme clair";
+        }
+        else  {
+            document.body.style.backgroundColor = "#bce7fd";
+            document.body.style.color = "black";
+            document.getElementById('PxKingdom').style.color = "#052f33";
+            document.getElementById('darkBtn').innerHTML = "Theme sombre";
+        }
+    });
+    // voir une pub
     let timer = 0;
     var myInterv 
 document.getElementById('adBtn').addEventListener('click', () => {
     timer = 30;
-    console.log('ok')
     console.log(myInterv)
     const adBonus=() => {
         if (timer > 0) {
@@ -202,7 +217,6 @@ eltMultiImg.addEventListener('click', function() {
     const travailPersonnages=() =>{         // les personnages produisent de l'or
 
     if (bonus === true) {
-        console.log('x1')
         myOr += paysanSerpette.production*multiplicateur.effet;
         myOr += soldatEpee.production*multiplicateur.effet;
         myOr += archer.production*multiplicateur.effet;
@@ -211,7 +225,6 @@ eltMultiImg.addEventListener('click', function() {
         myOr += soldatEpeeCasque.production*multiplicateur.effet;
     }
     else if (bonus === false) {
-        console.log('x2')
         myOr += paysanSerpette.production*multiplicateur.effet*2;
         myOr += soldatEpee.production*multiplicateur.effet*2;
         myOr += archer.production*multiplicateur.effet*2;

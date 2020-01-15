@@ -67,10 +67,11 @@ h3 {
     color: #15DEA5;
     font-size: 3rem;
     cursor: pointer;
-    padding: 1.85rem 3rem;
+    padding: 1.50rem 2rem;
+    margin-right: 20px;
     border-radius: 10rem;
     font-family: 'EightBitDragon';
-	font-size: medium;
+	font-size: small;
     transform: scale(1);
     transition-property: transform;
     transition-duration: 40ms;
