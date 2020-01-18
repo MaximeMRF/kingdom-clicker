@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded",(event) => {
+document.addEventListener("DOMContentLoaded",() => {
 let myOr = Number(0); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
                    // on met la var à 0 si on donne le jeu à un joueur
-let bonus = true;  
+let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
 document.getElementById('saveBtn').addEventListener('click', ()=> {
 	// récupération de l'or stockée dans le navigateur
@@ -67,7 +67,8 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
             document.getElementById('darkBtn').innerHTML = "Theme sombre";
         }
     });
-    // voir une pub
+    // voir une pub, focntion enlevée à cause de problèmes dû aux pubs
+    /*
     let timer = 0;
     var myInterv 
 document.getElementById('adBtn').addEventListener('click', () => {
@@ -86,6 +87,7 @@ document.getElementById('adBtn').addEventListener('click', () => {
     }
     if (myInterv === undefined) { myInterv = setInterval(adBonus, 1000)};
     });
+    */
 document.getElementById('or').addEventListener('click', function() {   // on incrémente de 1 quand on clique sur l'image or          
     myOr++;
     affGold.innerHTML = myOr;
