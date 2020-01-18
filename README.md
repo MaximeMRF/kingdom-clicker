@@ -3,11 +3,10 @@
 Ce jeu a été crée par Maxime @MaxMrf pour s'améliorer en javascript 
 et surtout DOM JS
 
-## Mise à jour
+## Confort des utilisateur
 
-Depuis le dernier commit le local storage marche, l'or est donc stockée 
-dans le navigateur. Il manque plus que le stockage des personnages et 
-items.
+Malgré que le site n'est pas très beau j'ai rajouté un bouton theme sombre
+qui permet d'appliquer un thème sombre au site pour moins fatiguer les yeux
 
 ## Programmation
 
