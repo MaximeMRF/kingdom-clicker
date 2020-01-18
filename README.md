@@ -3,9 +3,9 @@
 Ce jeu a été crée par Maxime @MaxMrf pour s'améliorer en javascript 
 et surtout DOM JS
 
-## Confort des utilisateur
+## Confort des utilisateurs
 
-Malgré que le site n'est pas très beau j'ai rajouté un bouton theme sombre
+Malgré que le site n'est pas très beau j'ai rajouté un bouton thème sombre
 qui permet d'appliquer un thème sombre au site pour moins fatiguer les yeux
 
 ## Programmation
