@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded",() => {
-let myOr = Number(0); // on déclare la var et on lui met 100000 or pour que le développeur peut tester le jeu
-                   // on met la var à 0 si on donne le jeu à un joueur
+let myOr = Number(15000000);
+                   
 let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
 document.getElementById('saveBtn').addEventListener('click', ()=> {
@@ -43,6 +43,12 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
     soldatEpeeCasque.nombre = recSoldatEpeeCasque.nombre;
     soldatEpeeCasque.production = recSoldatEpeeCasque.production;
     soldatEpeeCasque.decrire();
+    // récupération de l'arbalétrier
+    let recArbaletrier = JSON.parse(localStorage.getItem("Arbaletrier"));
+    arbaletrier.prix = recArbaletrier.prix;
+    arbaletrier.nombre = recArbaletrier.nombre;
+    arbaletrier.production = recArbaletrier.production;
+    arbaletrier.decrire();
     // récupération des items
     // récupération du multiplicateur de production
     let recMultiplicateur = JSON.parse(localStorage.getItem("MultiplicateurProduction"));
@@ -58,6 +64,7 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
             document.body.style.backgroundColor = "#121212";
             document.body.style.color = "#BB86FC";
             document.getElementById('PxKingdom').style.color = "#03DAC5";
+            //document.getElementById('paysanImg').style.opacity = "0.7"; 
             document.getElementById('darkBtn').innerHTML = "Theme clair";
         }
         else  {
@@ -95,14 +102,14 @@ document.getElementById('or').addEventListener('click', function() {   // on inc
     }); 
   // fonction fléchée qui permet d'afficher les stats dans la page
   const stats=() =>{         
- document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production)*multiplicateur.effet;    
- document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre);
- if (bonus === true) {
+ document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ arbaletrier.production)*multiplicateur.effet;    
+ document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre+ arbaletrier.nombre);
+ /*if (bonus === true) {
     document.getElementById('statBonusPub').innerHTML ='Désactivé';  
  }
  if (bonus === false) {
     document.getElementById('statBonusPub').innerHTML ='Activé'; 
- }
+ }*/
 }
 // inclure les descriptions dans la page html
 //decrire les items
@@ -114,6 +121,7 @@ archer.decrire();
 lanceur.decrire();
 soldatLance.decrire();
 soldatEpeeCasque.decrire();
+arbaletrier.decrire();
 // affichage des stats dans la page
 stats();
 															// acheter des personnages
@@ -202,7 +210,20 @@ eltSoldatEpeeCasqueImg.addEventListener('click', function() {
 
 		stats();
     }
-	});			
+    });
+//acheter un arbalétrier
+document.getElementById('ArbaletrierImg').addEventListener('click', function() {             
+    if (myOr >= arbaletrier.prix ) {
+    	myOr -= arbaletrier.prix;
+    	arbaletrier.prix += 4000000;
+    	arbaletrier.nombre += 1;
+    	arbaletrier.production += 5200;
+    	affGold.innerHTML = myOr;	
+    	arbaletrier.decrire();
+
+		stats();
+    }
+	});				
 																	//acheter des items
 // acheter un multiplicateur de production																	
 const eltMultiImg = document.getElementById('multipliProdImg');
@@ -225,6 +246,7 @@ eltMultiImg.addEventListener('click', function() {
         myOr += lanceur.production*multiplicateur.effet;
         myOr += soldatLance.production*multiplicateur.effet;
         myOr += soldatEpeeCasque.production*multiplicateur.effet;
+        myOr += arbaletrier.production*multiplicateur.effet;
     }
     else if (bonus === false) {
         myOr += paysanSerpette.production*multiplicateur.effet*2;
@@ -233,6 +255,7 @@ eltMultiImg.addEventListener('click', function() {
         myOr += lanceur.production*multiplicateur.effet*2;
         myOr += soldatLance.production*multiplicateur.effet*2;
         myOr += soldatEpeeCasque.production*multiplicateur.effet*2;
+        myOr += arbaletrier.production*multiplicateur.effet*2;
     }
     affGold.innerHTML = Math.round(myOr);
     affGoldTitle.innerHTML = Math.round(myOr) + " Or - Pixel Kingdom Cliker";    
@@ -254,6 +277,8 @@ window.addEventListener("beforeunload", function () {
     localStorage.setItem("SoldatLance", JSON.stringify(soldatLance));
     // sauvegarde du soldat à épée et casque
     localStorage.setItem("SoldatEpeeCasque", JSON.stringify(soldatEpeeCasque));
+    // sauvegarde de l'arbalétrier
+    localStorage.setItem("Arbaletrier", JSON.stringify(arbaletrier));
     // sauvegarder les items
     localStorage.setItem("MultiplicateurProduction", JSON.stringify(multiplicateur));
 });    

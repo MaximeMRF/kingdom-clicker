@@ -23,4 +23,6 @@ class Personnage {
  const archer = new Personnage(46000, 0, 0,"Un archer qui tire à distance",'prixArcher','nbArcher','productionArcher','descArcher');
  const lanceur = new Personnage(100000, 0, 0,"Un lanceur de pierre",'prixLP','nbLP','productionLP','descLP');
  const soldatLance = new Personnage(421000, 0, 0,"Un soldat à lance",'prixSLance','nbSLance','productionSLance','descSLance');
- const soldatEpeeCasque = new Personnage(1000000, 0, 0,"Un soldat à épée et casque",'prixSCEpee','nbSCEpee','productionSCEpee','descSCEpee');    
+ const soldatEpeeCasque = new Personnage(1000000, 0, 0,"Un soldat à épée et casque",'prixSCEpee','nbSCEpee','productionSCEpee','descSCEpee');
+ const arbaletrier = new Personnage(15000000, 0, 0,"Un arbalétrier","prixArbaletrier","nbArbaletrier","productionArbaletrier","descArbaletrier");
+ const sorcier = new Personnage();     
