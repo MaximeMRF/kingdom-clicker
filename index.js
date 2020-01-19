@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",() => {
-let myOr = Number(15000000);
+let myOr = Number(0);
                    
 let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
