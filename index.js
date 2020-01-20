@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded",() => {
-let myOr = Number(0);
+let Or = Number(0);
                    
 let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
 document.getElementById('saveBtn').addEventListener('click', ()=> {
 	// récupération de l'or stockée dans le navigateur
-	myOr = JSON.parse(localStorage.getItem("Or"));
-	affGold.innerHTML= myOr;
+	Or = JSON.parse(localStorage.getItem("Or"));
+	affGold.innerHTML= Or;
 	// récupération du paysan
 	let recPaysan = JSON.parse(localStorage.getItem("Paysan"));
 	paysanSerpette.prix = recPaysan.prix;
@@ -96,9 +96,9 @@ document.getElementById('adBtn').addEventListener('click', () => {
     });
     */
 document.getElementById('or').addEventListener('click', function() {   // on incrémente de 1 quand on clique sur l'image or          
-    myOr++;
-    affGold.innerHTML = myOr;
-    affGoldTitle.innerHTML = myOr + " Or - Pixel Kingdom Cliker"; 
+    Or++;
+    affGold.innerHTML = Or;
+    affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker"; 
     }); 
   // fonction fléchée qui permet d'afficher les stats dans la page
   const stats=() =>{         
@@ -128,14 +128,14 @@ stats();
 // acheter un paysan
 const eltPayImg = document.getElementById('paysanImg');
 eltPayImg.addEventListener('click', function() {             
-    if (myOr >= paysanSerpette.prix ) {
-    	myOr -= paysanSerpette.prix;
+    if (Or >= paysanSerpette.prix ) {
+    	Or -= paysanSerpette.prix;
 		paysanSerpette.prix += 150;
 		//paysanSerpette.prix = Math.round(paysanSerpette.prix)*1.25;
 		//paysanSerpette.prix = 100 *(1.25*paysanSerpette.nombre);
     	paysanSerpette.nombre += 1;
     	paysanSerpette.production += 1;
-    	affGold.innerHTML = myOr;
+    	affGold.innerHTML = Or;
 		paysanSerpette.decrire();
 
 		stats();
@@ -144,12 +144,12 @@ eltPayImg.addEventListener('click', function() {
 // acheter un soldat à épée
 const eltSEPImg = document.getElementById('SoldatEpeeImg');
 eltSEPImg.addEventListener('click', function() {             
-    if (myOr >= soldatEpee.prix ) {
-    	myOr -= soldatEpee.prix;
+    if (Or >= soldatEpee.prix ) {
+    	Or -= soldatEpee.prix;
     	soldatEpee.prix += 840;
     	soldatEpee.nombre += 1;
     	soldatEpee.production += 8;
-    	affGold.innerHTML = myOr;
+    	affGold.innerHTML = Or;
     	soldatEpee.decrire();
 
 		stats();
@@ -158,12 +158,12 @@ eltSEPImg.addEventListener('click', function() {
 // acheter un archer
 const eltArcherImg = document.getElementById('ArcherImg');
 eltArcherImg.addEventListener('click', function() {             
-    if (myOr >= archer.prix ) {
-    	myOr -= archer.prix;
+    if (Or >= archer.prix ) {
+    	Or -= archer.prix;
     	archer.prix += 2100;
     	archer.nombre += 1;
     	archer.production += 30;
-    	affGold.innerHTML = myOr;	
+    	affGold.innerHTML = Or;	
     	archer.decrire();
 
 		stats();
@@ -172,12 +172,12 @@ eltArcherImg.addEventListener('click', function() {
 //acheter un lanceur de pierre
 const eltLanceurImg = document.getElementById('LanceurPImg');
 eltLanceurImg.addEventListener('click', function() {             
-    if (myOr >= lanceur.prix ) {
-    	myOr -= lanceur.prix;
+    if (Or >= lanceur.prix ) {
+    	Or -= lanceur.prix;
     	lanceur.prix += 7300;
     	lanceur.nombre += 1;
     	lanceur.production += 100;
-    	affGold.innerHTML = myOr;	
+    	affGold.innerHTML = Or;	
     	lanceur.decrire();
 
 		stats();
@@ -186,12 +186,12 @@ eltLanceurImg.addEventListener('click', function() {
 //acheter un soldat à lance
 const eltSoldatLanceImg = document.getElementById('SoldatLanceImg');
 eltSoldatLanceImg.addEventListener('click', function() {             
-    if (myOr >= soldatLance.prix ) {
-    	myOr -= soldatLance.prix;
+    if (Or >= soldatLance.prix ) {
+    	Or -= soldatLance.prix;
     	soldatLance.prix += 26000;
     	soldatLance.nombre += 1;
     	soldatLance.production += 240;
-    	affGold.innerHTML = myOr;	
+    	affGold.innerHTML = Or;	
     	soldatLance.decrire();
 
 		stats();
@@ -200,12 +200,12 @@ eltSoldatLanceImg.addEventListener('click', function() {
 //acheter un soldat à épée et casque
 const eltSoldatEpeeCasqueImg = document.getElementById('SoldatEpeeCasqueImg');
 eltSoldatEpeeCasqueImg.addEventListener('click', function() {             
-    if (myOr >= soldatEpeeCasque.prix ) {
-    	myOr -= soldatEpeeCasque.prix;
+    if (Or >= soldatEpeeCasque.prix ) {
+    	Or -= soldatEpeeCasque.prix;
     	soldatEpeeCasque.prix += 150000;
     	soldatEpeeCasque.nombre += 1;
     	soldatEpeeCasque.production += 1000;
-    	affGold.innerHTML = myOr;	
+    	affGold.innerHTML = Or;	
     	soldatEpeeCasque.decrire();
 
 		stats();
@@ -213,12 +213,12 @@ eltSoldatEpeeCasqueImg.addEventListener('click', function() {
     });
 //acheter un arbalétrier
 document.getElementById('ArbaletrierImg').addEventListener('click', function() {             
-    if (myOr >= arbaletrier.prix ) {
-    	myOr -= arbaletrier.prix;
+    if (Or >= arbaletrier.prix ) {
+    	Or -= arbaletrier.prix;
     	arbaletrier.prix += 4000000;
     	arbaletrier.nombre += 1;
     	arbaletrier.production += 5200;
-    	affGold.innerHTML = myOr;	
+    	affGold.innerHTML = Or;	
     	arbaletrier.decrire();
 
 		stats();
@@ -228,10 +228,10 @@ document.getElementById('ArbaletrierImg').addEventListener('click', function() {
 // acheter un multiplicateur de production																	
 const eltMultiImg = document.getElementById('multipliProdImg');
 eltMultiImg.addEventListener('click', function() {             
-	if (myOr >= multiplicateur.prix ) {
-		myOr -= multiplicateur.prix;
+	if (Or >= multiplicateur.prix ) {
+		Or -= multiplicateur.prix;
 		multiplicateur.prix *= 15;
-		affGold.innerHTML = myOr;
+		affGold.innerHTML = Or;
 		multiplicateur.effet += 1;	
 		multiplicateur.decrire();	
 		stats();
@@ -240,30 +240,30 @@ eltMultiImg.addEventListener('click', function() {
     const travailPersonnages=() =>{         // les personnages produisent de l'or
 
     if (bonus === true) {
-        myOr += paysanSerpette.production*multiplicateur.effet;
-        myOr += soldatEpee.production*multiplicateur.effet;
-        myOr += archer.production*multiplicateur.effet;
-        myOr += lanceur.production*multiplicateur.effet;
-        myOr += soldatLance.production*multiplicateur.effet;
-        myOr += soldatEpeeCasque.production*multiplicateur.effet;
-        myOr += arbaletrier.production*multiplicateur.effet;
+        Or += paysanSerpette.production*multiplicateur.effet;
+        Or += soldatEpee.production*multiplicateur.effet;
+        Or += archer.production*multiplicateur.effet;
+        Or += lanceur.production*multiplicateur.effet;
+        Or += soldatLance.production*multiplicateur.effet;
+        Or += soldatEpeeCasque.production*multiplicateur.effet;
+        Or += arbaletrier.production*multiplicateur.effet;
     }
     else if (bonus === false) {
-        myOr += paysanSerpette.production*multiplicateur.effet*2;
-        myOr += soldatEpee.production*multiplicateur.effet*2;
-        myOr += archer.production*multiplicateur.effet*2;
-        myOr += lanceur.production*multiplicateur.effet*2;
-        myOr += soldatLance.production*multiplicateur.effet*2;
-        myOr += soldatEpeeCasque.production*multiplicateur.effet*2;
-        myOr += arbaletrier.production*multiplicateur.effet*2;
+        Or += paysanSerpette.production*multiplicateur.effet*2;
+        Or += soldatEpee.production*multiplicateur.effet*2;
+        Or += archer.production*multiplicateur.effet*2;
+        Or += lanceur.production*multiplicateur.effet*2;
+        Or += soldatLance.production*multiplicateur.effet*2;
+        Or += soldatEpeeCasque.production*multiplicateur.effet*2;
+        Or += arbaletrier.production*multiplicateur.effet*2;
     }
-    affGold.innerHTML = Math.round(myOr);
-    affGoldTitle.innerHTML = Math.round(myOr) + " Or - Pixel Kingdom Cliker";    
+    affGold.innerHTML = Math.round(Or);
+    affGoldTitle.innerHTML = Math.round(Or) + " Or - Pixel Kingdom Cliker";    
 }
 // Gestion de la fermeture ou du refresh de la page web
 window.addEventListener("beforeunload", function () {
-	// sauvegarder dans le localstorage la variable myOr
-	localStorage.setItem("Or", JSON.stringify(myOr));
+	// sauvegarder dans le localstorage la variable Or
+	localStorage.setItem("Or", JSON.stringify(Or));
 	// sauvegarder les personnages
 	//sauvegarder le paysan
 	localStorage.setItem("Paysan", JSON.stringify(paysanSerpette));
