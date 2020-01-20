@@ -64,7 +64,7 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
             document.body.style.backgroundColor = "#121212";
             document.body.style.color = "#BB86FC";
             document.getElementById('PxKingdom').style.color = "#03DAC5";
-            //document.getElementById('paysanImg').style.opacity = "0.7"; 
+            //document.getElementById('PaysanImg').style.opacity = "0.7"; 
             document.getElementById('darkBtn').innerHTML = "Theme clair";
         }
         else  {
@@ -126,7 +126,7 @@ arbaletrier.decrire();
 stats();
 															// acheter des personnages
 // acheter un paysan
-const eltPayImg = document.getElementById('paysanImg');
+const eltPayImg = document.getElementById('PaysanImg');
 eltPayImg.addEventListener('click', function() {             
     if (Or >= paysanSerpette.prix ) {
     	Or -= paysanSerpette.prix;
