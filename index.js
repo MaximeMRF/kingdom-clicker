@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded",() => {
 let Or = 0; // initialisation de l'or 
 const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
-console.log(allObjects[1]);
 // notamment avec un forEach
 let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          

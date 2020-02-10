@@ -21,6 +21,12 @@ Vous pouvez utiliser les graphismes du jeu dans n'importe quel projet/jeu
 tant que ce dernier est a but non lucratif.
 Sinon veuillez me contacter : maxgamesmrf@gmail.com
 
+## Bot
+
+Avec l'exemple de code contenu dans bot.js créez votre propre
+bot qui permet d'acheter de façon intelligente et automatique
+des personnages.
+
 ## Autres projects
 
 -Jeu rpg maker mv
