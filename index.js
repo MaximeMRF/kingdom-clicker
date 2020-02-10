@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded",() => {
-let Or = 400100; // initialisation de l'or 
-const allObjects = [multiplicateur,paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier];                   
+let Or = 0; // initialisation de l'or 
+const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
+console.log(allObjects[1]);
 // notamment avec un forEach
 let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
@@ -27,7 +28,8 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
             document.body.style.backgroundColor = "#121212";
             document.body.style.color = "#BB86FC";
             document.getElementById('PxKingdom').style.color = "#03DAC5";
-            //document.getElementById('PaysanImg').style.opacity = "0.7"; 
+            //console.log(document.getElementsByTagName('img'))
+            //document.getElementsByTagName('img').forEach((e)=> e.style.opacity = "0.7")
             document.getElementById('darkBtn').innerHTML = "Theme clair";
         }
         else  {
@@ -178,24 +180,15 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
 	}
 	});																															
     const travailPersonnages=() =>{         // les personnages produisent de l'or
-    //allObjects.forEach((e)=>console.log(e));
     if (bonus === true) {
-        Or += paysanSerpette.production*multiplicateur.production;
-        Or += soldatEpee.production*multiplicateur.production;
-        Or += archer.production*multiplicateur.production;
-        Or += lanceur.production*multiplicateur.production;
-        Or += soldatLance.production*multiplicateur.production;
-        Or += soldatEpeeCasque.production*multiplicateur.production;
-        Or += arbaletrier.production*multiplicateur.production;
+        allObjects.pop()
+        allObjects.forEach((e)=> Or += e.production*multiplicateur.production)
+        allObjects.push(multiplicateur)
     }
     else if (bonus === false) {
-        Or += paysanSerpette.production*multiplicateur.production*2;
-        Or += soldatEpee.production*multiplicateur.production*2;
-        Or += archer.production*multiplicateur.production*2;
-        Or += lanceur.production*multiplicateur.production*2;
-        Or += soldatLance.production*multiplicateur.production*2;
-        Or += soldatEpeeCasque.production*multiplicateur.production*2;
-        Or += arbaletrier.production*multiplicateur.production*2;
+        allObjects.pop()
+        allObjects.forEach((e)=> Or += e.production*multiplicateur.production*2)
+        allObjects.push(multiplicateur)
     }
     affGold.innerHTML = Math.round(Or)+' α';
     affGoldTitle.innerHTML = Math.round(Or) + " Or - Pixel Kingdom Cliker";    
