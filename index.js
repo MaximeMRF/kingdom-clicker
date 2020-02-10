@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded",() => {
-let Or = 0; // initialisation de l'or 
+let Or = 99990; // initialisation de l'or 
 const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
 // notamment avec un forEach
 let bonus = true;  // bonus fonctionne avec la fonction pub
-document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme          
+document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme 
+const simplify = ()=>Math.round(Or) >= 100000 ? affGold.innerHTML = (Math.round(Or)-100000)+' α': affGold.innerHTML = Math.round(Or);         
 document.getElementById('saveBtn').addEventListener('click', ()=> {
 	// récupération de l'or stockée dans le navigateur
 	Or = JSON.parse(localStorage.getItem("Or"));
-    affGold.innerHTML= Or;
+    simplify();
     // récupération de tout les objects de la classe Personnage sauvegardés dans le nav
     allObjects.forEach((e)=> {
         let recObj = JSON.parse(localStorage.getItem(e.key));
@@ -61,7 +62,7 @@ document.getElementById('adBtn').addEventListener('click', () => {
     */
 document.getElementById('or').addEventListener('click', function() {   // on incrémente de 1 quand on clique sur l'image or          
     Or++;
-    affGold.innerHTML = Or +' α';
+    simplify();
     affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker"; 
     }); 
   // fonction fléchée qui permet d'afficher les stats dans la page
@@ -80,7 +81,7 @@ document.getElementById('or').addEventListener('click', function() {   // on inc
 allObjects.forEach((e)=>e.decrire()); 
 // affichage des stats dans la page
 stats();
-															// acheter des personnages
+                                                            // acheter des personnages
 // acheter un paysan
 document.getElementById('PaysanImg').addEventListener('click', acheterPaysan=()=> {             
     if (Or >= paysanSerpette.prix ) {
@@ -189,7 +190,7 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
         allObjects.forEach((e)=> Or += e.production*multiplicateur.production*2)
         allObjects.push(multiplicateur)
     }
-    affGold.innerHTML = Math.round(Or)+' α';
+    simplify();
     affGoldTitle.innerHTML = Math.round(Or) + " Or - Pixel Kingdom Cliker";    
 }
 // Gestion de la fermeture ou du refresh de la page web
