@@ -4,8 +4,22 @@ const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatE
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
 // notamment avec un forEach
 let bonus = true;  // bonus fonctionne avec la fonction pub
-document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme 
-document.getElementById('saveBtn').addEventListener('click', ()=> {
+document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
+  // fonction fléchée qui permet d'afficher les stats dans la page
+  const stats=() =>{ 
+    //let statProd =0;
+    //allObjects.forEach((e)=>statProd += e.production)
+    //console.log(statProd)        
+document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ arbaletrier.production+sorcier.production)*multiplicateur.production;    
+document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre+ arbaletrier.nombre+sorcier.nombre);
+/*if (bonus === true) {
+  document.getElementById('statBonusPub').innerHTML ='Désactivé';  
+}
+if (bonus === false) {
+  document.getElementById('statBonusPub').innerHTML ='Activé'; 
+}*/
+} 
+if (localStorage.length > 0) {
 	// récupération de l'or stockée dans le navigateur
 	Or = JSON.parse(localStorage.getItem("Or"));
     simplify(Or,affGold);
@@ -19,10 +33,9 @@ document.getElementById('saveBtn').addEventListener('click', ()=> {
 
     allObjects.forEach((e)=>e.decrire()); 
     // mettre les stats à jour
-    stats();
-
-    });
-    document.getElementById('darkBtn').addEventListener('click', ()=> {
+    //stats(); 
+}
+document.getElementById('darkBtn').addEventListener('click', ()=> {
         if (document.body.style.backgroundColor === "rgb(188, 231, 253)") {
             document.body.style.backgroundColor = "#121212";
             document.body.style.color = "#BB86FC";
@@ -64,20 +77,6 @@ document.getElementById('or').addEventListener('click', function() {   // on inc
     simplify(Or,affGold);
     affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker"; 
     }); 
-  // fonction fléchée qui permet d'afficher les stats dans la page
-  const stats=() =>{ 
-      //let statProd =0;
-      //allObjects.forEach((e)=>statProd += e.production)
-      //console.log(statProd)        
- document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ arbaletrier.production+sorcier.production)*multiplicateur.production;    
- document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre+ arbaletrier.nombre+sorcier.nombre);
- /*if (bonus === true) {
-    document.getElementById('statBonusPub').innerHTML ='Désactivé';  
- }
- if (bonus === false) {
-    document.getElementById('statBonusPub').innerHTML ='Activé'; 
- }*/
-}
 // inclure les descriptions dans la page html
 //decrire les personnages et items avec forEach
 allObjects.forEach((e)=>e.decrire()); 
