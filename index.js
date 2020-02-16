@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded",() => {
-let Or = 75000000; // initialisation de l'or 
+let Or = 0; // initialisation de l'or 
 const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier,sorcier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
 // notamment avec un forEach
