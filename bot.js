@@ -3,6 +3,7 @@
 const bot = ()=> {
 
     let monOr = document.getElementById('affGold').innerHTML;
+    console.log(monOr)
 
        if (monOr >= paysanSerpette.prix && paysanSerpette.nombre !== 20) {
         acheterPaysan();

@@ -65,7 +65,10 @@ document.getElementById('or').addEventListener('click', function() {   // on inc
     affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker"; 
     }); 
   // fonction fléchée qui permet d'afficher les stats dans la page
-  const stats=() =>{         
+  const stats=() =>{ 
+      //let statProd =0;
+      //allObjects.forEach((e)=>statProd += e.production)
+      //console.log(statProd)        
  document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ arbaletrier.production+sorcier.production)*multiplicateur.production;    
  document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre+ arbaletrier.nombre+sorcier.nombre);
  /*if (bonus === true) {
@@ -81,114 +84,54 @@ allObjects.forEach((e)=>e.decrire());
 // affichage des stats dans la page
 stats();
                                                             // acheter des personnages
-// acheter un paysan
-document.getElementById('PaysanImg').addEventListener('click', acheterPaysan=()=> {             
-    if (Or >= paysanSerpette.prix ) {
-    	Or -= paysanSerpette.prix;
-        paysanSerpette.prix = Math.round(paysanSerpette.prix*1.15);
-    	paysanSerpette.nombre += 1;
-    	paysanSerpette.production += 1;
-    	affGold.innerHTML = Or;
-		paysanSerpette.decrire();
+// factorisation
+const acheterPersonnage=(personnage)=> {
+    if (Or >= personnage.prix) {
+        Or -= personnage.prix;
+        personnage.prix = Math.round(personnage.prix*personnage.pourcentPrix);
+        personnage.nombre += 1;
+        personnage.production += personnage.incremProd;
+        simplify(Or,affGold);
+    	personnage.decrire();
 		stats();
     }
+}
+// acheter un paysan
+document.getElementById('PaysanImg').addEventListener('click', acheterPaysan=()=> {             
+    acheterPersonnage(paysanSerpette);
     });
 // acheter un soldat à épée
 document.getElementById('SoldatEpeeImg').addEventListener('click', acheterSoldatEpee=()=> {             
-    if (Or >= soldatEpee.prix ) {
-    	Or -= soldatEpee.prix;
-    	soldatEpee.prix = Math.round(soldatEpee.prix*1.15);
-    	soldatEpee.nombre += 1;
-    	soldatEpee.production += 8;
-    	affGold.innerHTML = Or;
-    	soldatEpee.decrire();
-		stats();
-    }
+    acheterPersonnage(soldatEpee);
     });
 // acheter un archer
 document.getElementById('ArcherImg').addEventListener('click', acheterArcher=()=> {             
-    if (Or >= archer.prix ) {
-    	Or -= archer.prix;
-    	archer.prix = Math.round(archer.prix*1.15);
-    	archer.nombre += 1;
-    	archer.production += 30;
-    	affGold.innerHTML = Or;	
-    	archer.decrire();
-		stats();
-    }
+    acheterPersonnage(archer);
     });
 //acheter un lanceur de pierre
 document.getElementById('LanceurPImg').addEventListener('click', acheterLanceur=()=> {             
-    if (Or >= lanceur.prix ) {
-    	Or -= lanceur.prix;
-    	lanceur.prix = Math.round(lanceur.prix*1.15);
-    	lanceur.nombre += 1;
-    	lanceur.production += 100;
-    	affGold.innerHTML = Or;	
-    	lanceur.decrire();
-		stats();
-    }
+    acheterPersonnage(lanceur);
 	});
 //acheter un soldat à lance
 document.getElementById('SoldatLanceImg').addEventListener('click', acheterSoldatLance=()=> {             
-    if (Or >= soldatLance.prix ) {
-    	Or -= soldatLance.prix;
-    	soldatLance.prix = Math.round(soldatLance.prix*1.15);
-    	soldatLance.nombre += 1;
-    	soldatLance.production += 240;
-    	affGold.innerHTML = Or;	
-    	soldatLance.decrire();
-		stats();
-    }
+    acheterPersonnage(soldatLance);
 	});
 //acheter un soldat à épée et casque
 document.getElementById('SoldatEpeeCasqueImg').addEventListener('click', acheterSoldatEpeeCasque=()=> {             
-    if (Or >= soldatEpeeCasque.prix ) {
-    	Or -= soldatEpeeCasque.prix;
-    	soldatEpeeCasque.prix = Math.round(soldatEpeeCasque.prix*1.15)
-    	soldatEpeeCasque.nombre += 1;
-    	soldatEpeeCasque.production += 1000;
-    	affGold.innerHTML = Or;	
-    	soldatEpeeCasque.decrire();
-		stats();
-    }
+    acheterPersonnage(soldatEpeeCasque);
     });
 //acheter un arbalétrier
 document.getElementById('ArbaletrierImg').addEventListener('click', acheterArbaletrier=()=> {             
-    if (Or >= arbaletrier.prix ) {
-    	Or -= arbaletrier.prix;
-    	arbaletrier.prix = Math.round(arbaletrier.prix*1.15);
-    	arbaletrier.nombre += 1;
-    	arbaletrier.production += 5200;
-    	affGold.innerHTML = Or;	
-    	arbaletrier.decrire();
-		stats();
-    }
+    acheterPersonnage(arbaletrier);
     });
 //acheter un sorcier
-document.getElementById('SorcierImg').addEventListener('click', acheterArbaletrier=()=> {             
-    if (Or >= sorcier.prix ) {
-    	Or -= sorcier.prix;
-    	sorcier.prix = Math.round(sorcier.prix*1.15);
-    	sorcier.nombre += 1;
-    	sorcier.production += 5200;
-    	affGold.innerHTML = Or;	
-    	sorcier.decrire();
-		stats();
-    }
+document.getElementById('SorcierImg').addEventListener('click', acheterSorcier=()=> {             
+    acheterPersonnage(sorcier);
 	});				
 																	//acheter des items
 // acheter un multiplicateur de production																	
 document.getElementById('multipliProdImg').addEventListener('click', acheterMultiplicateur=()=> {             
-	if (Or >= multiplicateur.prix ) {
-		Or -= multiplicateur.prix;
-        multiplicateur.prix *= 15;
-        multiplicateur.nombre += 1;
-		affGold.innerHTML = Or;
-		multiplicateur.production += 1;	
-		multiplicateur.decrire();	
-		stats();
-	}
+    acheterPersonnage(multiplicateur);
 	});																															
     const travailPersonnages=() =>{         // les personnages produisent de l'or
     if (bonus === true) {
@@ -202,7 +145,7 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
         allObjects.push(multiplicateur)
     }
     simplify(Or,affGold);
-    affGoldTitle.innerHTML = Math.round(Or) + " Or - Pixel Kingdom Cliker";    
+    affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";    
 }
 // Gestion de la fermeture ou du refresh de la page web
 window.addEventListener("beforeunload", function () {
