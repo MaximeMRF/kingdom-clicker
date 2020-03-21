@@ -14,6 +14,7 @@
 </head>
 <body>
 	<header>
+	<img id="MondeImg" src="graphics/monde.png">
 	<div id="stats">
 		<div id="allBtn">
 			<!--<a target="_blank" rel="noopener noreferrer" href="https://ellevolaw.com/bqv" id="adBtn" class="btn" title="Regarder une pub">PUB</a>-->
@@ -21,13 +22,13 @@
 		    </div>
 		<h3>Stats :</h3>
 			<p>Production totale par seconde : <span id="prodTotale"></span></p>
-			<p>Nombre totale de personnages : <span id="persoTotale"></span></p>
+			<p>Nombre total de personnages : <span id="persoTotale"></span></p>
 			<!--<p>Bonus pub production x2 (Dure 30 secondes) : <span id="statBonusPub"></span></p>-->
 
 	</div>
 	<div>
 	<div id="gold">		
-		<img id="or" src="graphics/or.png">	    		
+		<img id="or" class="Clic" src="graphics/or.png">	    		
     </div>
     <div id="afficheur">
         <h1>Or : <span id="affGold"></span></h1>
@@ -41,72 +42,92 @@
     <div id="Personnages">
 	 <div id="Personnages-colonne1">
     	<div id="Paysan">
-    	<img id="PaysanImg" src="graphics/paysan_serpette.png">
+    	<img id="PaysanImg" class="Clic" src="graphics/paysan_serpette.png">
     	<h2>Paysan à serpette</h2>
     	<p>Prix : <span id="prixPaysan"></span></p>
-    	<p>Nombre de paysans à votre service : <span id="nbPaysan"></span></p>
+    	<p>Nombre de paysans à serpette : <span id="nbPaysan"></span></p>
     	<p>Production : <span id="productionPaysan"></span> </p>
     	<p>Description : <span id="descPaysan"></span></p>
     	</div>
 
+		<div id="PaysanFourche">
+		<img id="PaysanFourcheImg" class="Clic" src="graphics/paysan_fourche.png">
+		<h2>Paysan à fourche</h2>
+		<p>Prix : <span id="prixPaysanF"></span></p>
+		<p>Nombre de paysans à fourche : <span id="nbPaysanF"></span></p>
+		<p>Production : <span id="productionPaysanF"></span> </p>
+		<p>Description : <span id="descPaysanF"></span></p>
+		</div>
+
     	<div id="SoldatEpee">
-    	<img id="SoldatEpeeImg" src="graphics/soldat_epee.png">
+    	<img id="SoldatEpeeImg" class="Clic" src="graphics/soldat_epee.png">
     	<h2>Soldat à épée</h2>
     	<p>Prix : <span id="prixSEpee"></span></p>
-    	<p>Nombre de soldats à épée à votre service : <span id="nbSEpee"></span></p>
+    	<p>Nombre de soldats à épée : <span id="nbSEpee"></span></p>
     	<p>Production : <span id="productionSEpee"></span> </p>
     	<p>Description : <span id="descSEpee"></span></p>
     	</div>
 
     	<div id="Archer">
-    	<img id="ArcherImg" src="graphics/archer2.png">
+    	<img id="ArcherImg" class="Clic" src="graphics/archer2.png">
     	<h2>Archer</h2>
     	<p>Prix : <span id="prixArcher"></span></p>
-    	<p>Nombre d'archers à votre service : <span id="nbArcher"></span></p>
+    	<p>Nombre d'archers : <span id="nbArcher"></span></p>
     	<p>Production : <span id="productionArcher"></span> </p>
     	<p>Description : <span id="descArcher"></span></p>
     	</div>
 
     	<div id="LanceurP">
-    	<img id="LanceurPImg" src="graphics/lanceur_pierre.png">
+    	<img id="LanceurPImg" class="Clic" src="graphics/lanceur_pierre.png">
     	<h2>Lanceur de pierres</h2>
     	<p>Prix : <span id="prixLP"></span></p>
-    	<p>Nombre de lanceurs de pierre à votre service : <span id="nbLP"></span></p>
+    	<p>Nombre de lanceurs de pierre : <span id="nbLP"></span></p>
     	<p>Production : <span id="productionLP"></span> </p>
     	<p>Description : <span id="descLP"></span></p>
 		</div>
 	 </div>
 	 <div id="Personnages-colonne2">	
 		<div id="SoldatLance">
-			<img id="SoldatLanceImg" src="graphics/soldat_lance.png">
+			<img id="SoldatLanceImg" class="Clic" src="graphics/soldat_lance.png">
 			<h2>Soldat à lance</h2>
 			<p>Prix : <span id="prixSLance"></span></p>
-			<p>Nombre de soldats à lance à votre service : <span id="nbSLance"></span></p>
+			<p>Nombre de soldats à lance : <span id="nbSLance"></span></p>
 			<p>Production : <span id="productionSLance"></span> </p>
 			<p>Description : <span id="descSLance"></span></p>
 			</div>
 
 		<div id="SoldatEpeeCasque">
-			<img id="SoldatEpeeCasqueImg" src="graphics/soldat_epee_casque.png">
+			<img id="SoldatEpeeCasqueImg" class="Clic" src="graphics/soldat_epee_casque.png">
 			<h2>Soldat à épée et casque</h2>
 			<p>Prix : <span id="prixSCEpee"></span></p>
-			<p>Nombre de soldats à casque à votre service : <span id="nbSCEpee"></span></p>
+			<p>Nombre de soldats à casque : <span id="nbSCEpee"></span></p>
 			<p>Production : <span id="productionSCEpee"></span> </p>
 			<p>Description : <span id="descSCEpee"></span></p>
 			</div>
+
+		<div id="LanceurHache">
+			<img id="LanceurHacheImg" class="Clic" src="graphics/lanceur_hache.png">
+			<h2>Lanceur de hache</h2>
+			<p>Prix : <span id="prixLanceurH"></span></p>
+			<p>Nombre de lanceurs de hache : <span id="nbLanceurH"></span></p>
+			<p>Production : <span id="productionLanceurH"></span> </p>
+			<p>Description : <span id="descLanceurH"></span></p>
+			</div>
+
 		<div id="arbaletrier">
-			<img id="ArbaletrierImg" src="graphics/arbaletrier.png">
+			<img id="ArbaletrierImg" class="Clic" src="graphics/arbaletrier.png">
 			<h2>Arbalétrier</h2>
 			<p>Prix : <span id="prixArbaletrier"></span></p>
-			<p>Nombre d'arbalétriers à votre service : <span id="nbArbaletrier"></span></p>
+			<p>Nombre d'arbalétriers : <span id="nbArbaletrier"></span></p>
 			<p>Production : <span id="productionArbaletrier"></span> </p>
 			<p>Description : <span id="descArbaletrier"></span></p>
 			</div>
+
 		<div id="sorcier">
-			<img id="SorcierImg" src="graphics/sorcier.png">
+			<img id="SorcierImg" class="Clic" src="graphics/sorcier.png">
 			<h2>Sorcier</h2>
 			<p>Prix : <span id="prixSorcier"></span></p>
-			<p>Nombre de sorciers à votre service : <span id="nbSorcier"></span></p>
+			<p>Nombre de sorciers : <span id="nbSorcier"></span></p>
 			<p>Production : <span id="productionSorcier"></span> </p>
 			<p>Description : <span id="descSorcier"></span></p>
 			</div>
@@ -116,7 +137,7 @@
    <h1>Items : </h1>
    <div id="Items">
    		<div id="multipliProd">
-   			<img id ="multipliProdImg"src="graphics/doubleur_or.png">
+   			<img id ="multipliProdImg" class="Clic" src="graphics/doubleur_or.png">
    				<h2>Multiplicateur de production</h2>
 				   <p>Prix : <span id="prixMultiProd"></span></p>
 				   <p>Nombre : <span id="nbMultiProd"></span></p>

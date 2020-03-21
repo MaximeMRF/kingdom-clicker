@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded",() => {
 let Or = 0; // initialisation de l'or 
-const allObjects = [paysanSerpette,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,arbaletrier,sorcier,multiplicateur];                   
+const allObjects = [paysanSerpette,paysanFourche,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,lanceurHache,arbaletrier,sorcier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
 // notamment avec un forEach
 let bonus = true;  // bonus fonctionne avec la fonction pub
@@ -10,8 +10,8 @@ document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
     //let statProd =0;
     //allObjects.forEach((e)=>statProd += e.production)
     //console.log(statProd)        
-document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ arbaletrier.production+sorcier.production)*multiplicateur.production;    
-document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre+ arbaletrier.nombre+sorcier.nombre);
+document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production)*multiplicateur.production;    
+document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + paysanFourche.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre + lanceurHache.nombre + arbaletrier.nombre+sorcier.nombre);
 /*if (bonus === true) {
   document.getElementById('statBonusPub').innerHTML ='Désactivé';  
 }
@@ -99,6 +99,10 @@ const acheterPersonnage=(personnage)=> {
 document.getElementById('PaysanImg').addEventListener('click', acheterPaysan=()=> {             
     acheterPersonnage(paysanSerpette);
     });
+// acheter un paysan à fourche
+document.getElementById('PaysanFourcheImg').addEventListener('click', acheterPaysanFourche=()=> {             
+    acheterPersonnage(paysanFourche);
+    });
 // acheter un soldat à épée
 document.getElementById('SoldatEpeeImg').addEventListener('click', acheterSoldatEpee=()=> {             
     acheterPersonnage(soldatEpee);
@@ -118,6 +122,10 @@ document.getElementById('SoldatLanceImg').addEventListener('click', acheterSolda
 //acheter un soldat à épée et casque
 document.getElementById('SoldatEpeeCasqueImg').addEventListener('click', acheterSoldatEpeeCasque=()=> {             
     acheterPersonnage(soldatEpeeCasque);
+    });
+//acheter un soldat à épée et casque
+document.getElementById('LanceurHacheImg').addEventListener('click', acheterSoldatEpeeCasque=()=> {             
+    acheterPersonnage(lanceurHache);
     });
 //acheter un arbalétrier
 document.getElementById('ArbaletrierImg').addEventListener('click', acheterArbaletrier=()=> {             
@@ -150,9 +158,9 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
 window.addEventListener("beforeunload", function () {
 	// sauvegarder dans le localstorage la variable Or
 	localStorage.setItem("Or", JSON.stringify(Or));
-	// sauvegarder les personnages et items
+    // sauvegarder les personnages et items
     allObjects.forEach((e)=>localStorage.setItem(e.key, JSON.stringify(e)));
-});    
+});     
 setInterval(travailPersonnages, 1000);     // code asynchrone pour dire que la function      
 });                                   // est répétée toute les secondes
 

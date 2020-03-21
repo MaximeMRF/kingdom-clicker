@@ -81,13 +81,17 @@ h3 {
     transform: scale(1.10);
     background: #2d7ac7;
 }
-img:hover {
-	 transform: scale(1);
+#MondeImg {
+	width: 250px; 
+	height: 250px;
+}
+.Clic:hover {
+	transform: scale(1);
     transition-property: transform;
     transition-duration: 40ms;
     transform: scale(1.20);
 }
-img:active {
+.Clic:active {
 	transform: scale(1);
     transition-property: transform;
     transition-duration: 10ms;
