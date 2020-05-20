@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded",() => {
 let Or = 0; // initialisation de l'or 
 const allObjects = [paysanSerpette,paysanFourche,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,lanceurHache,arbaletrier,sorcier,multiplicateur];                   
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
-// notamment avec un forEach
-let bonus = true;  // bonus fonctionne avec la fonction pub
 document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
   // fonction fléchée qui permet d'afficher les stats dans la page
   const stats=() =>{ 
@@ -12,12 +10,7 @@ document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
     //console.log(statProd)        
 document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production)*multiplicateur.production;    
 document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + paysanFourche.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre + lanceurHache.nombre + arbaletrier.nombre+sorcier.nombre);
-/*if (bonus === true) {
-  document.getElementById('statBonusPub').innerHTML ='Désactivé';  
-}
-if (bonus === false) {
-  document.getElementById('statBonusPub').innerHTML ='Activé'; 
-}*/
+
 } 
 if (localStorage.length > 0) {
 	// récupération de l'or stockée dans le navigateur
@@ -51,27 +44,6 @@ document.getElementById('darkBtn').addEventListener('click', ()=> {
             document.getElementById('darkBtn').innerHTML = "Theme sombre";
         }
     });
-    // voir une pub, fonction enlevée à cause de problèmes dû aux pubs
-    /*
-    let timer = 0;
-    var myInterv 
-document.getElementById('adBtn').addEventListener('click', () => {
-    timer = 30;
-    console.log(myInterv)
-    const adBonus=() => {
-        if (timer > 0) {
-            timer -= 1;
-            bonus = false;
-            stats();
-        } else if (timer === 0) {
-            bonus = true;
-            timer = 0;
-            stats();
-        }
-    }
-    if (myInterv === undefined) { myInterv = setInterval(adBonus, 1000)};
-    });
-    */
 document.getElementById('or').addEventListener('click', function() {   // on incrémente de 1 quand on clique sur l'image or          
     Or++;
     simplify(Or,affGold);
@@ -84,7 +56,7 @@ allObjects.forEach((e)=>e.decrire());
 stats();
                                                             // acheter des personnages
 // factorisation
-const acheterPersonnage=(personnage)=> {
+const acheterPersonnage = (personnage) => {
     if (Or >= personnage.prix) {
         Or -= personnage.prix;
         personnage.prix = Math.round(personnage.prix*personnage.pourcentPrix);
@@ -141,21 +113,14 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
     acheterPersonnage(multiplicateur);
 	});																															
     const travailPersonnages=() =>{         // les personnages produisent de l'or
-    if (bonus === true) {
         allObjects.pop()
         allObjects.forEach((e)=> Or += e.production*multiplicateur.production)
         allObjects.push(multiplicateur)
+        simplify(Or,affGold);
+        affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";    
     }
-    else if (bonus === false) {
-        allObjects.pop()
-        allObjects.forEach((e)=> Or += e.production*multiplicateur.production*2)
-        allObjects.push(multiplicateur)
-    }
-    simplify(Or,affGold);
-    affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";    
-}
 // Gestion de la fermeture ou du refresh de la page web
-window.addEventListener("beforeunload", function () {
+window.addEventListener("beforeunload", ()=> {
 	// sauvegarder dans le localstorage la variable Or
 	localStorage.setItem("Or", JSON.stringify(Or));
     // sauvegarder les personnages et items
