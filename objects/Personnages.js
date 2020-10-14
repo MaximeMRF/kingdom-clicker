@@ -14,7 +14,7 @@ class Personnage {
       this.key = key;
   }
        decrire() {  // on décrit le personnage dans le code html	
-          document.getElementById(this.divPrix).innerHTML = simplify(this.prix,this.divPrix);
+          document.getElementById(this.divPrix).innerHTML = this.prix;
           document.getElementById(this.divNb).innerHTML = this.nombre;
           document.getElementById(this.divProd).innerHTML = this.production; 
           document.getElementById(this.divDesc).innerHTML = this.description;
