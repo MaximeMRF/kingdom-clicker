@@ -7,7 +7,7 @@ Et l'(id) qui définit l'id html dans lequel ce résultat va être rendu
 
 const simplify = (e, id) => {
 
-  if (Math.round(e) >= 100000 && Math.round(e) =< 100000000)
+  if (Math.round(e) >= 100000 && Math.round(e) <= 100000000)
     id.innerHTML = Math.round(e/100000)+' α';
   else if (Math.round(e) >= 100000000)
     id.innerHTML = Math.round(e/100000000)+' β';
