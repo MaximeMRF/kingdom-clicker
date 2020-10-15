@@ -9,8 +9,10 @@ const simplify = (e, id) => {
 
   if (Math.round(e) >= 100000 && Math.round(e) <= 100000000)
     id.innerHTML = Math.round(e/100000)+' α';
-  else if (Math.round(e) >= 100000000)
+  else if (Math.round(e) >= 100000000 && Math.round(e) <= 100000000000)
     id.innerHTML = Math.round(e/100000000)+' β';
+  else if (Math.round(e) >= 100000000000)
+    id.innerHTML = Math.round(e/100000000000)+' γ';
   else
     id.innerHTML = Math.round(e);
 }
