@@ -26,17 +26,3 @@ Sinon veuillez me contacter : maxgamesmrf@gmail.com
 Avec l'exemple de code contenu dans bot.js créez votre propre
 bot qui permet d'acheter de façon intelligente et automatique
 des personnages.
-
-## Autres projects
-
--Un jeu clicker sur game boy
-https://github.com/MaximeMRF/clicker-game-boy
-
--Jeu rpg maker mv
-https://maxgamesmrf.000webhostapp.com
-
--Site wordpress
-https://7-peches-capitaux-got.000webhostapp.com
-
--Portfolio
-Pas dispo
