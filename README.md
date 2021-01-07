@@ -1,3 +1,6 @@
+## Ancien projet plus maintenu
+faites pas attention à la qualité du code
+
 ## Lien du site :
 https://pixelkingdom.netlify.com
 
