@@ -1,5 +1,5 @@
 ## Ancien projet plus maintenu
-faites pas attention à la qualité du code
+faites pas attention à la qualité du code j'ai pris du niveau entre temps :)
 
 ## Lien du site :
 https://pixelkingdom.netlify.com
