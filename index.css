@@ -34,6 +34,10 @@ h1[id="PxKingdom"]
 	display: flex;
 	justify-content: space-around;
 }
+#Personnages-colonne3 {
+	display: flex;
+	justify-content: space-around;
+}
 body {
     background-color: #bce7fd;
 }
