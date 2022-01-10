@@ -2,20 +2,22 @@ document.addEventListener("DOMContentLoaded",() => {
 let Or = 0; // initialisation de l'or 
 const allObjects = [paysanSerpette,paysanFourche,soldatEpee,archer,lanceur,soldatLance,soldatEpeeCasque,lanceurHache,arbaletrier,sorcier,assasin,roi,multiplicateur];                  
 // On met tout les personnages dans un tableau qui nous permettra de mieux les manipuler 
-document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
-  // fonction fléchée qui permet d'afficher les stats dans la page
-  const stats=() =>{ 
-    //let statProd =0;
-    //allObjects.forEach((e)=>statProd += e.production)
-    //console.log(statProd)        
-document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production + assasin.production + roi.production)*multiplicateur.production;    
-document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + paysanFourche.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre + lanceurHache.nombre + arbaletrier.nombre+sorcier.nombre + assasin.nombre + roi.nombre);
+const dateDiff = (date1, date2) => {
+    // différence en seconde
+    let diff = 0
+    let tmp = date2 - date1
 
-} 
+    tmp = Math.floor(tmp/1000)
+    diff = tmp % 60
+
+    return diff
+}
+document.body.style.backgroundColor = "#bce7fd"; // pour gérer le darktheme
+  const stats=() =>{      
+    document.getElementById('prodTotale').innerHTML = (soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production + assasin.production + roi.production)*multiplicateur.production;    
+    document.getElementById('persoTotale').innerHTML =(paysanSerpette.nombre + paysanFourche.nombre + soldatEpee.nombre + archer.nombre + lanceur.nombre + soldatLance.nombre + soldatEpeeCasque.nombre + lanceurHache.nombre + arbaletrier.nombre+sorcier.nombre + assasin.nombre + roi.nombre);
+}
 if (localStorage.length > 0) {
-	// récupération de l'or stockée dans le navigateur
-	Or = JSON.parse(localStorage.getItem("Or"));
-    simplify(Or,affGold);
     // récupération de tout les objects de la classe Personnage sauvegardés dans le nav
     allObjects.forEach((e)=> {
         let recObj = JSON.parse(localStorage.getItem(e.key));
@@ -23,8 +25,15 @@ if (localStorage.length > 0) {
         e.nombre = recObj.nombre;
         e.production = recObj.production; 
     });
-
-    allObjects.forEach((e)=>e.decrire()); 
+    allObjects.forEach((e)=>e.decrire());
+    const prodTotale = soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production + assasin.production + roi.production
+	// récupération de l'or stockée dans le navigateur
+	Or = JSON.parse(localStorage.getItem("Or"));
+    if (prodTotale > 0) {
+        const lastPlay = JSON.parse(localStorage.getItem('lastPlay'))
+        Or += dateDiff(lastPlay, Date.now()) * prodTotale
+    }
+    simplify(Or,affGold);
     // mettre les stats à jour
     //stats(); 
 }
@@ -128,6 +137,8 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
     }
 // Gestion de la fermeture ou du refresh de la page web
 window.addEventListener("beforeunload", ()=> {
+    // on sauvegarde la date à laquelle le joueur a arrêté de jouer
+    localStorage.setItem("lastPlay", JSON.stringify(Date.now()));
 	// sauvegarder dans le localstorage la variable Or
 	localStorage.setItem("Or", JSON.stringify(Or));
     // sauvegarder les personnages et items
