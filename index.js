@@ -67,7 +67,7 @@ stats();
 const acheterPersonnage = (personnage) => {
     if (Or >= personnage.prix) {
         Or -= personnage.prix;
-        personnage.prix = Math.round(personnage.prix*personnage.pourcentPrix);
+        personnage.prix = Math.round(personnage.prix * personnage.pourcentPrix);
         personnage.nombre += 1;
         personnage.production += personnage.incremProd;
         simplify(Or,affGold);
@@ -76,64 +76,64 @@ const acheterPersonnage = (personnage) => {
     }
 }
 // acheter un paysan
-document.getElementById('PaysanImg').addEventListener('click', acheterPaysan=()=> {             
+document.getElementById('PaysanImg').addEventListener('click', acheterPaysan = () => {
     acheterPersonnage(paysanSerpette);
 });
 // acheter un paysan à fourche
-document.getElementById('PaysanFourcheImg').addEventListener('click', acheterPaysanFourche=()=> {             
+document.getElementById('PaysanFourcheImg').addEventListener('click', acheterPaysanFourche = () => {
     acheterPersonnage(paysanFourche);
 });
 // acheter un soldat à épée
-document.getElementById('SoldatEpeeImg').addEventListener('click', acheterSoldatEpee=()=> {             
+document.getElementById('SoldatEpeeImg').addEventListener('click', acheterSoldatEpee = () => {
     acheterPersonnage(soldatEpee);
 });
 // acheter un archer
-document.getElementById('ArcherImg').addEventListener('click', acheterArcher=()=> {             
+document.getElementById('ArcherImg').addEventListener('click', acheterArcher = () => {
     acheterPersonnage(archer);
 });
 //acheter un lanceur de pierre
-document.getElementById('LanceurPImg').addEventListener('click', acheterLanceur=()=> {             
+document.getElementById('LanceurPImg').addEventListener('click', acheterLanceur = () => {
     acheterPersonnage(lanceur);
 });
 //acheter un soldat à lance
-document.getElementById('SoldatLanceImg').addEventListener('click', acheterSoldatLance=()=> {             
+document.getElementById('SoldatLanceImg').addEventListener('click', acheterSoldatLance = () => {
     acheterPersonnage(soldatLance);
 });
 //acheter un soldat à épée et casque
-document.getElementById('SoldatEpeeCasqueImg').addEventListener('click', acheterSoldatEpeeCasque=()=> {             
+document.getElementById('SoldatEpeeCasqueImg').addEventListener('click', acheterSoldatEpeeCasque =() => {
     acheterPersonnage(soldatEpeeCasque);
 });
 //acheter un soldat à épée et casque
-document.getElementById('LanceurHacheImg').addEventListener('click', acheterSoldatEpeeCasque=()=> {             
+document.getElementById('LanceurHacheImg').addEventListener('click', acheterSoldatEpeeCasque = () => {
     acheterPersonnage(lanceurHache);
 });
 //acheter un arbalétrier
-document.getElementById('ArbaletrierImg').addEventListener('click', acheterArbaletrier=()=> {             
+document.getElementById('ArbaletrierImg').addEventListener('click', acheterArbaletrier = () => {
     acheterPersonnage(arbaletrier);
 });
 //acheter un sorcier
-document.getElementById('SorcierImg').addEventListener('click', acheterSorcier=()=> {             
+document.getElementById('SorcierImg').addEventListener('click', acheterSorcier = () => {
     acheterPersonnage(sorcier);
 });
 //acheter un assasin
-document.getElementById('AssasinImg').addEventListener('click', acheterAssasin=()=> {             
+document.getElementById('AssasinImg').addEventListener('click', acheterAssasin = () => {
     acheterPersonnage(assasin);
 });
 //acheter un roi
-document.getElementById('RoiImg').addEventListener('click', acheterRoi=()=> {             
+document.getElementById('RoiImg').addEventListener('click', acheterRoi = () => {
     acheterPersonnage(roi);
-});			
+});
 //acheter des items
-// acheter un multiplicateur de production																	
-document.getElementById('multipliProdImg').addEventListener('click', acheterMultiplicateur=()=> {             
+// acheter un multiplicateur de production														
+document.getElementById('multipliProdImg').addEventListener('click', acheterMultiplicateur = () => {         
     acheterPersonnage(multiplicateur);
-});																												
+});																									
     const travailPersonnages=() =>{
         allObjects.pop()
         allObjects.forEach((e)=> Or += e.production*multiplicateur.production)
         allObjects.push(multiplicateur)
         simplify(Or,affGold);
-        affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";    
+        affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";
     }
 // Gestion de la fermeture ou du refresh de la page web
 window.addEventListener("beforeunload", ()=> {
@@ -144,15 +144,5 @@ window.addEventListener("beforeunload", ()=> {
     // sauvegarder les personnages et items
     allObjects.forEach((e)=>localStorage.setItem(e.key, JSON.stringify(e)));
 });
-setInterval(travailPersonnages, 1000);      
+setInterval(travailPersonnages, 1000);
 });
-
-
-   
-
-
-
-
-
-
-
