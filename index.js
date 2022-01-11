@@ -26,7 +26,7 @@ if (localStorage.length > 0) {
         e.production = recObj.production; 
     });
     allObjects.forEach((e)=>e.decrire());
-    const prodTotale = soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production + assasin.production + roi.production
+    const prodTotale = (soldatEpee.production + paysanFourche.production + paysanSerpette.production+ archer.production+ lanceur.production+ soldatLance.production+ soldatEpeeCasque.production+ lanceurHache.production + arbaletrier.production+sorcier.production + assasin.production + roi.production) * multiplicateur.production
 	// récupération de l'or stockée dans le navigateur
 	Or = JSON.parse(localStorage.getItem("Or"));
     if (prodTotale > 0) {
