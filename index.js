@@ -33,7 +33,7 @@ if (localStorage.length > 0) {
         const lastPlay = JSON.parse(localStorage.getItem('lastPlay'))
         Or += dateDiff(lastPlay, Date.now()) * prodTotale
     }
-    simplify(Or,affGold);
+    affGold.innerHTML = simplify(Or);
     // mettre les stats à jour
     //stats(); 
 }
@@ -53,10 +53,8 @@ document.getElementById('darkBtn').addEventListener('click', ()=> {
             document.getElementById('darkBtn').innerHTML = "Theme sombre";
         }
     });
-document.getElementById('or').addEventListener('click', function() {   // on incrémente de 1 quand on clique sur l'image or          
-    Or++;
-    simplify(Or,affGold);
-    affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker"; 
+document.getElementById('or').addEventListener('click', function() {
+    affGoldTitle.innerHTML = simplify(++Or) + " Or - Pixel Kingdom Cliker"; 
 });
 // inclure les descriptions dans la page html
 //decrire les personnages et items avec forEach
@@ -70,7 +68,7 @@ const acheterPersonnage = (personnage) => {
         personnage.prix = Math.round(personnage.prix * personnage.pourcentPrix);
         personnage.nombre += 1;
         personnage.production += personnage.incremProd;
-        simplify(Or,affGold);
+        affGold.innerHTML = simplify(Or);
     	personnage.decrire();
 		stats();
     }
@@ -132,7 +130,8 @@ document.getElementById('multipliProdImg').addEventListener('click', acheterMult
         allObjects.pop()
         allObjects.forEach((e)=> Or += e.production*multiplicateur.production)
         allObjects.push(multiplicateur)
-        simplify(Or,affGold);
+        simplify(Or);
+        affGold.innerHTML = Or;
         affGoldTitle.innerHTML = Or + " Or - Pixel Kingdom Cliker";
     }
 // Gestion de la fermeture ou du refresh de la page web
